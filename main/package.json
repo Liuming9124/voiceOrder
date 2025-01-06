@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "bootstrap-icons": "^1.10.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
+    "lru-cache": "^9.1.1",
+    "neo4j": "^2.0.0-RC2",
+    "neo4j-driver": "^5.27.0",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  },
+  "scripts": {
+    "start": "nodemon -e js,ejs,html,css -w . -w public -w views -w routes -w models server.js"
+  }
+}

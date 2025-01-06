@@ -1,0 +1,1 @@
+nodemon -e js,ejs,html -w . -w public -w views -w routes -w models server.js
