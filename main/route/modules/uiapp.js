@@ -9,18 +9,22 @@ const uiappCtl = {
 
 router.get('/', uiappCtl.uiappPage)
 router.post('/vtocmsg', async (req, res) => {
-    data = req.body
-    console.log(data)
-    
-    res.send("vtocMsg success");
+    data = req.body;
+    console.log(data);
+    msg = data[0].msg;
+    returnmsg = "receive " + msg;
+    response = [{"msg":returnmsg}];
+    res.send(response);
 })
 
 
 router.post('/vtocvoice', async (req, res) => {
-    data = req.body
-    console.log(data)
-    
-    res.send("vtocvoice success");
+    data = req.body;
+    console.log(data);
+    msg = data[0].msg;
+    returnmsg = "receive " + msg;
+    response = [{"msg":returnmsg}];
+    res.send(response);
 })
 
 
