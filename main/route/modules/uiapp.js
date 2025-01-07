@@ -40,7 +40,7 @@ router.post('/vtocmsg', async (req, res) => {
     .then(res => res.json())
     .then(data => {
         console.log('Success:', data);
-        res.send(data);
+        res.send([data]);
     })
 })
 
