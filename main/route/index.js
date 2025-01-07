@@ -8,4 +8,8 @@ module.exports = app => {
   app.use('/uiapp',  uiapp)
   app.use('/llm',    llm)
   app.use('/dbctl',  dbctl)
+  app.post('/vtocvoice', async (req, res) => {
+    console.log('vtocvoice in')
+    res.send("vtocvoice");
+  })
 }
