@@ -1,5 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const fs = require('fs');
+
+
+const config = JSON.parse(fs.readFileSync('config.env', 'utf8'));
 
 const uiappCtl = {
     uiappPage: async (req, res) => {
@@ -22,8 +26,11 @@ router.post('/vtocmsg', async (req, res) => {
         ]
     }
 
+    fastapi = config.fastapi + '/asklm';
+    console.log(fastapi);
+
     // 發 post request 
-    await fetch('http://localhost:8000/asklm', {
+    await fetch( fastapi, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

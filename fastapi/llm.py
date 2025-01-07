@@ -2,6 +2,9 @@ import openai
 
 openai.api_key = ""
 
+with open("apikey.txt", "r") as f:
+    openai.api_key = f.read().strip()
+
 def get_openai_response_stream(prompt, model="gpt-4o-mini", system_prompt=None):
     """
     調用 OpenAI API 並使用流式傳輸獲取回應，支持提示工程
