@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import requests
 import llm
-
+import whisper
 
 server = ""
 
@@ -35,4 +35,11 @@ async def asklm(data: Item):
     menu = response.json()
 
     output = llm.askLLM(prompt, menu)
+    return {"msg": output}
+
+@app.post("/translate/")
+async def translate(data: Item):
+    audio64 = data.detail[0].input.msg
+    output = whisper.transcribe_audio_from_base64(audio64, language="zh", prompt=None, response_format="text")
+    print(output)
     return {"msg": output}
