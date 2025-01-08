@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs');
+const { json } = require('stream/consumers');
 
 
 const config = JSON.parse(fs.readFileSync('config.env', 'utf8'));
@@ -85,14 +86,21 @@ router.post('/vtocvoice', async (req, res) => {
             body: JSON.stringify(vtocmsgInput),
         });
 
-        const vtocmsgData = await vtocmsgResponse.text();
-        console.log('Response from /vtocmsg:', vtocmsgData);
+        const vtocmsgData = await vtocmsgResponse.json();
+        console.log('Response from /vtocmsg:', vtocmsgData[0].msg);
 
+        // let vtocmsgData[0].msg to be string
+        let cvtocmsgData = vtocmsgData[0].msg.toString();
+        // 移除換行符號和反斜線
+        let cleanedString = cvtocmsgData.replace(/[\n\\]/g, '');
+        
         const result = [
             { input: asklmData },
-            { output: vtocmsgData }
+            { output: {"msg":cleanedString} }
         ];
-        res.send(result);
+        
+        console.log('Result:', result);
+        res.send(JSON.stringify(result));
     } catch (error) {
         console.error('Error in /vtocvoice:', error);
         res.status(500).send({ error: 'Failed to process vtocvoice' });
