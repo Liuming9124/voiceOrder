@@ -2,7 +2,7 @@ from py2neo import Graph, Node
 import pandas as pd
 
 # 連接至 Neo4j 資料庫
-graph = Graph("bolt://server.lmteck.uk:7687", auth=("neo4j", "R6jCH8EiOAQji18"))
+graph = Graph("bolt://xxxx.xxxx.xxx:7687", auth=("neo4j", "xxxxxxx"))
 
 # 從 Excel 讀取資料
 file_path = "./food.xlsx"  # 替換成您的 Excel 路徑

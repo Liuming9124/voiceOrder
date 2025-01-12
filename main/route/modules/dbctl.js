@@ -2,8 +2,8 @@ const express = require('express')
 const neo4j = require('neo4j-driver');
 const router = express.Router()
 const db = neo4j.driver(
-    'bolt://server.lmteck.uk:7687',
-    neo4j.auth.basic('neo4j', 'R6jCH8EiOAQji18')
+    'bolt://xxxx.xxxx.xxx:7687',
+    neo4j.auth.basic('neo4j', 'xxxxxx')
 );
 
 

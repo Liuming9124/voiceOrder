@@ -1,7 +1,7 @@
 from py2neo import Graph
 
 # 連接至 Neo4j 資料庫
-graph = Graph("bolt://server.lmteck.uk:7687", auth=("neo4j", "R6jCH8EiOAQji18"))
+graph = Graph("bolt://xxxx.xxxx.xxx:7687", auth=("neo4j", "R6jCH8EiOAQji18"))
 
 def delete_all_nodes():
     # 執行 Cypher 查詢刪除所有節點及其關係
